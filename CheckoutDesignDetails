@@ -1,0 +1,11 @@
+- The Transaction Command service is a web service that gets HTTP requests for pay requests with a payload of a payment transaction and credit card data, meanwhile sends an HTTP call to the Credit Card Checker service to check CC validation from the Bank and if the result is ok, inserts a new transaction record async and sends HTTP call to Bank Transaction Service to make the transaction.
+- The Transaction Report service gets data frequently from the Bank to avoid discrepancies and report to merchants the history of transactions.
+
+FaultResiliant:
+  1. In sync requests implement the Retry mechanism to make sure no loss request happens.
+  2. Have a second backup for third parties (etc Bank) and use the circuit breaker mechanism to manage third-party failures.
+  3. Using a master-slave structure for DB clusters to manage load and avoid data loss.
+Security:
+  1. Making a call to a third party should be secure using protocols like HTTPS.
+  2. All data are sensitive and should be secure using Encryption and masked to avoid abuses. DBs should all have restricted access and change credentials frequently to avoid long-term data access.
+  3. The credentials of merchants should use the OAUTH2.0 mechanism to avoid unprivileged access.
