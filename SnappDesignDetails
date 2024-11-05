@@ -1,0 +1,26 @@
+User Service is not in charge of managing user accounts and details related to users (both passengers and drivers). The User database should be a relational Database. Since there is no complex object to store here, Postgres is not suitable. SQLServer and MariaDB can both be good here.
+Offer Service has to create new offers and manage the offer journey for passengers and drivers. when a user creates an offer the Offer Service uses REST to call the Pricing service with lat, lang to get the price related to the ride then calls an HTTP REST to Driver Chooser to choose a driver for this ride, using Driver Location Service finds Driver Locations with specific logics (etc radius lower than 2 KMs) and with checking Driver Ratings which also is a relational DB choose some candidate drivers and send backs offers to drivers to start the ride. when a driver accepts the offer ride status changes using an async event to Ride State services. when the driver finishes the ride and sends an HTTP REST request to the Offer service, first the Offer service sends an async message to the Ride Status service to update the ride status. Later the Offer Service sends an async event to the FA service to start a payment process, FA service starts a transaction in transaction DB which is relational DB since the data structure is more like relational data.
+Pricing Service is for calculating the price of a ride with input lat, lang using the ETA service which can be a third party or local service. price can not only be related to ETA and should have some factors for districts and hexagonal, which are stored in price factors DB which is some numeric data and relational DB is a rational choice here. 
+Driver Location service is going to have a very high throughput since active drivers send locations every 5 or 10 sec in a suitable protocol like MQTT and for storing these data the Redis GeoLocation is a good choice.
+Ride State service manages ride states and it's in charge of ride data using a Repository. Ride Service can have an Event Sourcing structure with consuming async events and messages from other services, update ride status and send related events in case a service is willing to have ride status changes.
+FA service manages the Financial data of users (passengers and drivers) when a Pay command from the Offer service reaches the FA service, the service creates a new transaction for the user and commands the Payment service to make the transaction finalized, if the user tries to use credit account make the transaction and checks the user balance to make the transaction and move credit to driver FA account.
+The Payment Service is responsible for payments of users, when it consumes a payment command creates a new payment event with an event sourcing structure and inserts it into Payment Event DB which is relational, then checks Credit Card DB to search for users that already have credit card data stored, if not asks users for credit card data, and create a event for a new payment and send it to Checkout System to make the transaction using a Secured HTTPS request with secure mechanism like OAUTH2.0 that can be both local or using a third party. 
+
+Cache:
+  1. For the User service we can use a Cache mechanism for user data since it hardly changes.
+  2. Price factors db can be supported with an aggressive Cache mechanism since invalidation can be easily managed.
+  3. avoid caching sensitive data.
+FaultResiliant:
+  1. Using a master-slave structure for DB clusters to manage load
+  2. Implement the Inbox and the Outbox patterns in all event-based services to make sure that messages get to where they should be and no message losses in case of event bus failures.
+  3. In sync requests implement the Retry mechanism to make sure no loss request happens.
+  4. Have a second backup for third parties (etc ETA or PaymentService) and use the circuit breaker mechanism to manage third-party failures.
+Security:
+  1. Making a call to a third party should be secure using protocols like HTTPS.
+  2. All sensitive data, such as credit cards, should be secure using Encryption and masked to avoid abuses. Sensitive DBs should all have restricted access and change credentials frequently to avoid long-term data access.
+  3. Connections to the event bus should be secured to avoid unprivileged access.
+
+P.N.
+  1. All relational DBs can be the same tech stack (etc SQLServer or MariaDB with a ProxySQL for load balancing), these databases promise CA in theCAP theorem since consistency reaches when slaves are eventually going to be synced with master and availability is promised since at least one of the slaves manages the requests.
+  2. I ignored some concepts like using an API Gateway or Load balancer for simplicity. 
+  3. For the event bus RabbitMQ or NATS is a good choice here. RabbitMQ promises CA in the CAP theorem.
