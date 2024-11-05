@@ -11,7 +11,7 @@ Cache:
   2. Price factors db can be supported with an aggressive Cache mechanism since invalidation can be easily managed.
   3. avoid caching sensitive data.
 FaultResiliant:
-  1. Using a master-slave structure for DB clusters to manage load
+  1. Using a master-slave structure for DB clusters to manage load and avoid data loss.
   2. Implement the Inbox and the Outbox patterns in all event-based services to make sure that messages get to where they should be and no message losses in case of event bus failures.
   3. In sync requests implement the Retry mechanism to make sure no loss request happens.
   4. Have a second backup for third parties (etc ETA or PaymentService) and use the circuit breaker mechanism to manage third-party failures.
