@@ -1,0 +1,9 @@
+- The Transaction Command Service receives an HTTP call with pay request payload and merchant account details which is the target for the transaction then it calls with an HTTP call to the CC repository for validation and check CC black lists, then calls with an HTTP request to UFA service for user account balance checking and if it's ok makes the transaction which can be successful or failed. 
+- User Service manages user credentials and account details.
+- The ETL process moves the transactions to the Transaction Reports which is in charge of reports.
+
+FaultResiliant:
+  1. Using a master-slave structure for DB clusters to manage load and avoid data loss.
+  2. In sync requests implement the Retry mechanism to make sure no loss request happens.
+Security:
+  1. All sensitive data, such as credit cards, should be secure using Encryption and masked to avoid abuses. Sensitive DBs should all have restricted access and change credentials frequently to avoid long-term data access.
