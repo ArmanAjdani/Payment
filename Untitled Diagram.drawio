@@ -4,6 +4,12 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="i1v_3ago9XrvcatZwt_g-41" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" vertex="1" parent="1">
+          <mxGeometry x="620" y="25" width="220" height="435" as="geometry" />
+        </mxCell>
+        <mxCell id="i1v_3ago9XrvcatZwt_g-32" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" vertex="1" parent="1">
+          <mxGeometry x="360" y="27.5" width="230" height="432.5" as="geometry" />
+        </mxCell>
         <mxCell id="i1v_3ago9XrvcatZwt_g-14" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;textShadow=0;gradientColor=none;shadow=0;glass=0;" vertex="1" parent="1">
           <mxGeometry x="80" y="27.5" width="240" height="435" as="geometry" />
         </mxCell>
@@ -18,6 +24,12 @@
         </mxCell>
         <mxCell id="i1v_3ago9XrvcatZwt_g-2" value="FA" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="200" y="250" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="i1v_3ago9XrvcatZwt_g-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" edge="1" parent="1" source="i1v_3ago9XrvcatZwt_g-3" target="i1v_3ago9XrvcatZwt_g-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i1v_3ago9XrvcatZwt_g-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" edge="1" parent="1" source="i1v_3ago9XrvcatZwt_g-3" target="i1v_3ago9XrvcatZwt_g-29">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="i1v_3ago9XrvcatZwt_g-3" value="Payment" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="200" y="350" width="50" height="50" as="geometry" />
@@ -63,6 +75,42 @@
         </mxCell>
         <mxCell id="i1v_3ago9XrvcatZwt_g-24" value="Driver Location" style="ellipse;whiteSpace=wrap;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" vertex="1" parent="1">
           <mxGeometry x="260" y="165" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="i1v_3ago9XrvcatZwt_g-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" edge="1" parent="1" source="i1v_3ago9XrvcatZwt_g-29" target="i1v_3ago9XrvcatZwt_g-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i1v_3ago9XrvcatZwt_g-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" edge="1" parent="1" source="i1v_3ago9XrvcatZwt_g-29" target="i1v_3ago9XrvcatZwt_g-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i1v_3ago9XrvcatZwt_g-29" value="Commit Transaction&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" vertex="1" parent="1">
+          <mxGeometry x="445" y="330" width="70" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="i1v_3ago9XrvcatZwt_g-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" edge="1" parent="1" source="i1v_3ago9XrvcatZwt_g-30" target="i1v_3ago9XrvcatZwt_g-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i1v_3ago9XrvcatZwt_g-30" value="Credit Card Checker&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" vertex="1" parent="1">
+          <mxGeometry x="445" y="208.75" width="70" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="i1v_3ago9XrvcatZwt_g-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" edge="1" parent="1" source="i1v_3ago9XrvcatZwt_g-31" target="i1v_3ago9XrvcatZwt_g-40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i1v_3ago9XrvcatZwt_g-31" value="Transaction Reports&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" vertex="1" parent="1">
+          <mxGeometry x="445" y="70" width="70" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="i1v_3ago9XrvcatZwt_g-33" value="Checkout&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="445" y="40" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="i1v_3ago9XrvcatZwt_g-38" value="Transaction Commit" style="ellipse;whiteSpace=wrap;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" vertex="1" parent="1">
+          <mxGeometry x="700" y="330" width="70" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="i1v_3ago9XrvcatZwt_g-39" value="Credit Card Repository" style="ellipse;whiteSpace=wrap;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" vertex="1" parent="1">
+          <mxGeometry x="700" y="205" width="70" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="i1v_3ago9XrvcatZwt_g-40" value="Transaction Reports&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" vertex="1" parent="1">
+          <mxGeometry x="700" y="70" width="70" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="i1v_3ago9XrvcatZwt_g-42" value="Mellat" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="705" y="40" width="60" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
