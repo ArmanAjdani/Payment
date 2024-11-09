@@ -1,0 +1,27 @@
+title Checkout Payment
+
+
+
+
+actor Merchant
+participant Transaction Command
+
+participant Credit Card Checker
+participant Transaction Report
+participant Mellat
+
+
+
+Merchant->Transaction Command: Send new Transaction Command(Transaction, CC)
+Transaction Command->Credit Card Checker:Check CC(CC)
+Credit Card Checker->Credit Card Checker: validate CC
+Credit Card Checker->Mellat: Validate CC(CC)
+Credit Card Checker<--Mellat: CC validation result
+Credit Card Checker->Credit Card Checker: check balance
+Transaction Command<--Credit Card Checker: CC validation result
+Transaction Command->Transaction Command: Create new Transaction
+ref over Transaction Command,Mellat: Send new Transaction Command</link>
+Merchant<--Transaction Command: Transaction result
+loop get Trasnaction reports
+Transaction Report<--Mellat: transaction status
+end
