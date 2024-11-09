@@ -1,0 +1,35 @@
+title Snapp Payment
+
+
+actor Abbas
+participant Offer
+
+participant Pricing
+participant ETA
+
+
+
+Abbas->Pricing:Get price for ride (lat, lang)
+Pricing->ETA:Get ETA (lat, lang)
+Pricing<--ETA: ETA result
+Abbas<--Pricing: price result
+Abbas->Offer:Create new Offer
+Offer->Pricing:Get price for ride (lat, lang)
+Pricing->ETA:Get ETA (lat, lang)
+Pricing<--ETA:ETA result
+Offer<--Pricing: price result
+Offer->Driver Chooser: choose driver (location)
+Driver Chooser->Driver Location: get candinate drivers in area (location, criteria)
+Driver Chooser<--Driver Location: drivers list result
+Offer<--Driver Chooser: choosen driver
+Offer->Ride State: (Async) Create new ride (Driver, Passenger, Ride)
+Abbas->Offer:End ride (choose payment method)
+Offer->UFA: (Async) Create new Transaction (Driver, Passenger, Ride)
+UFA->UFA:Validate Transaction
+UFA->Payment: (Async) Create new PaymentCommand (Transaction)
+Offer->Ride State: (Async) Update Ride status (Ride)
+Payment->Payment: Validate Transaction & check CC DB
+ref over Payment,Checkout: Send new Transaction Command</link>
+UFA<--Payment: (Async) Final Payment status
+Offer<--UFA: (Async) Final Payment status
+Offer->Ride State: (Async) Update Ride status (Ride)
