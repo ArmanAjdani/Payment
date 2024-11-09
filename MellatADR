@@ -1,0 +1,27 @@
+title Mellat Payment
+
+
+
+
+actor Checkout
+participant Transaction Command
+
+participant Credit Card Repository
+participant Transaction Report
+participant UFA
+
+
+
+Checkout->Transaction Command: Send new Transaction Command(Transaction, CC)
+Transaction Command->Credit Card Repository:Check CC(CC)
+Credit Card Repository->Credit Card Repository: Validate CC
+Transaction Command<--Credit Card Repository: CC validation result
+Transaction Command->UFA: Check balance
+Transaction Command<--UFA: balance status
+Transaction Command->Transaction Command: Create new Transaction
+Transaction Command->UFA: Create new Transaction
+Transaction Command<--UFA: transaction status
+Checkout<--Transaction Command: transaction status
+loop get Trasnaction reports
+Transaction Report<--Transaction Command: transaction status
+end
